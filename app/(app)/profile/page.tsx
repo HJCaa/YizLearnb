@@ -29,6 +29,11 @@ const skills: { name: string; value: number; level: Level }[] = [
   { name: "设计模式", value: 10, level: "not-started" },
 ]
 
+// 24 小时活跃度（固定值，避免水合不一致）；20:00-01:00 为高活跃时段
+const hourlyActivity = [
+  72, 50, 28, 22, 18, 20, 26, 34, 40, 38, 30, 42, 48, 36, 44, 40, 46, 52, 58, 66, 88, 92, 84, 78,
+]
+
 const tabs = [
   { id: "cognitive", label: "认知状态", icon: Brain },
   { id: "preference", label: "学习偏好", icon: Target },
@@ -156,13 +161,13 @@ export default function ProfilePage() {
             <p className="mt-1 text-2xl font-bold text-foreground">20:00 - 23:00</p>
             <p className="mb-3 text-xs text-muted-foreground">夜间学习型</p>
             <div className="flex h-12 items-end gap-0.5">
-              {Array.from({ length: 24 }).map((_, h) => {
+              {hourlyActivity.map((height, h) => {
                 const active = h >= 20 || h <= 1
                 return (
                   <div
                     key={h}
                     className={cn("flex-1 rounded-sm", active ? "bg-brand" : "bg-secondary")}
-                    style={{ height: `${active ? 60 + Math.random() * 40 : 20 + Math.random() * 30}%` }}
+                    style={{ height: `${height}%` }}
                   />
                 )
               })}
