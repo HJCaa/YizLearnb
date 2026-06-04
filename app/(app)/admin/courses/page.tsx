@@ -272,7 +272,9 @@ function CourseRow({
             ) : course.status === "importing" ? (
               <Loader2 className="size-4 animate-spin text-warning" />
             ) : (
-              <AlertCircle className="size-4 text-danger" title={course.error} />
+              <span title={course.error} className="inline-flex">
+                <AlertCircle className="size-4 text-danger" />
+              </span>
             )}
             <Badge variant={meta.variant}>{meta.label}</Badge>
           </span>

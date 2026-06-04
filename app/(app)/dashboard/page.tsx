@@ -99,7 +99,7 @@ export default function DashboardPage() {
           <div className="grid grid-cols-2 gap-4">
             <RingGauge percent={78} label="78%" caption="知识掌握" color="var(--brand)" size={92} />
             <RingGauge percent={65} label="65%" caption="学习效率" color="var(--success)" size={92} />
-            <RingGauge percent={82} label="82%" caption="专注程度" color="var(--chart-5)" size={92} />
+            <RingGauge percent={82} label="82%" caption="专注程度" color="var(--indigo)" size={92} />
             <RingGauge percent={70} label="70%" caption="进步幅度" color="var(--chart-4)" size={92} />
           </div>
         </Card>
